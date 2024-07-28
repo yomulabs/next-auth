@@ -157,7 +157,7 @@ export default async function callback(params: {
         }
 
         // @ts-expect-error
-        await events.signIn?.({ user, account, profile, isNewUser })
+        await events.signIn?.({ user, account, profile, isNewUser, query, headers })
 
         // Handle first logins on new accounts
         // e.g. option to send users to a new account landing page on initial login
@@ -295,7 +295,7 @@ export default async function callback(params: {
         })
       }
 
-      await events.signIn?.({ user, account, isNewUser })
+      await events.signIn?.({ user, account, isNewUser, query, headers })
 
       // Handle first logins on new accounts
       // e.g. option to send users to a new account landing page on initial login
@@ -411,7 +411,7 @@ export default async function callback(params: {
     cookies.push(...sessionCookies)
 
     // @ts-expect-error
-    await events.signIn?.({ user, account })
+    await events.signIn?.({ user, account, query, headers })
 
     return { redirect: callbackUrl, cookies }
   }

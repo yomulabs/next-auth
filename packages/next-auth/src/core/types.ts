@@ -432,6 +432,8 @@ export interface EventCallbacks {
     account: Account | null
     profile?: Profile
     isNewUser?: boolean
+    query: any
+    headers: any
   }) => Awaitable<void>
   /**
    * The message object will contain one of these depending on
